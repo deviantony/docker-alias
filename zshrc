@@ -40,3 +40,6 @@ dbu() { docker build -t=$1 .; }
 
 # Show all alias related docker
 dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort; }
+
+# Remove untagged images
+driut() { docker rmi $(docker images -q --filter "dangling=true") }
