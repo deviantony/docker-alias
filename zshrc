@@ -43,3 +43,6 @@ dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/[
 
 # Remove untagged images
 driut() { docker rmi $(docker images -q --filter "dangling=true") }
+
+# Run interactive container using zsh
+dkizsh () { docker run -i -t -P $1 /bin/zsh }
